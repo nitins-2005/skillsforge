@@ -1,0 +1,89 @@
+<% layout("/layouts/boilerplate") %>
+    <div class="container mt-5">
+        <div class="row g-4">
+
+
+            <div class="col-md-4">
+                <div class="card shadow-sm ">
+                    <div class="card-header bg-dark text-white text-center">
+                        <strong>submission</strong> : <%= submission._id %>
+                    </div>
+
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">
+                            <%= task.title %>
+                        </h5>
+                        <hr>
+                        <p class="card-text">
+                            <strong>AIM:</strong><br>
+                            <%= task.description %>
+                        </p>
+
+                        <p class="card-text">
+                            <strong>USER:</strong><br>
+                            <%= user.username %>
+                        </p>
+
+                        <p class="card-text">
+                            <strong>SUBMITTED ON:</strong><br>
+                            <%= submission.createdAt.toDateString() %>
+                        </p>
+                        <hr>
+                        <div>
+                            <form action="/admin/<%= submission._id %>/approve" method="post" novalidate
+                                class="card-text forms needs-validation">
+                                <strong>EVALUATION :</strong> <br><br>
+                                <div class="form-floating mb-3">
+                                    <input type="number" class="form-control" name="marks" placeholder="Enter marks" required>
+                                    <label for="marks">MARKS</label>
+                                    <div class="valid-feedback">Looks good!</div>
+                                    <div class="invalid-feedback">Please enter valid marks</div>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" name="skillsEarned" placeholder="Enter skills earned">
+                                    <label for="skillsEarned">SKILLS EARNED</label>
+                                </div>
+                                <div class="form-floating">
+                                    <select class="form-select" aria-label="Floating label select example" name="status" required>
+                                        <option value="pending" selected>Pending</option>
+                                        <option value="checked">Approved</option>
+                                        <option value="rejected">Rejected</option>
+                                    </select>
+                                    <label for="status">Status</label>
+                                    <div class="valid-feedback">Looks good!</div>
+                                    <div class="invalid-feedback">Please select a valid status</div><br>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="card-footer text-muted text-center">
+                        <strong>Skill :</strong><%= task.topic %>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-8">
+                <div class="card shadow-lg">
+                    <div class="card-header bg-primary text-white text-center">
+                        SOLUTION
+                    </div>
+
+                    <div class="card-body">
+                        <div style="max-height:400px; overflow:auto;">
+                            <strong>CODE :</strong>
+                            <pre><code><%= submission.code %></code></pre> <!-- this preserves formatting exactly -->
+                        </div>
+                        <hr>
+                        <div style="max-height:164px; overflow:auto;">
+                            <strong>EXPLANATION :</strong>
+                            <pre><%= submission.explanation %></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br><br>

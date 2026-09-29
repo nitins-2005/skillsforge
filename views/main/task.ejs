@@ -1,0 +1,25 @@
+<% layout("/layouts/boilerplate") %>
+<br>
+<div class="container mt-5">
+    <h2 class="mb-3">Tasks for <%= topic %> :</h2>
+<br><br><br>
+    
+    <div class="row row-cols-lg-3 row-cols-md-2  row-cols-sm-1">
+        <% for (task of tasks){ %>
+    
+        <div class="col-md-4 mb-3">
+            <div class="card text-center p-4 shadow-sm">
+            <h5>
+                <%= task.title %>
+            </h5>
+            <p><%= task.description %></p>
+            <p>Difficulty: <%= task.difficulty %></p>
+             <a href="/tasks/<%= task._id %>/sub" class="btn btn-primary btn-sm mt-2">Start Task </a>
+            </div>
+        </div>
+    
+        <% } %>
+    </div>
+
+</div>
+<br><br><br><br><br>

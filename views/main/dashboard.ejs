@@ -1,0 +1,59 @@
+<% layout("/layouts/boilerplate") %>
+
+
+
+  <div class="container mt-5">
+
+    <h2 class="mb-3">Welcome, <%= users.username %>👋</h2>
+
+    <!-- stats -->
+    <div class="row mb-5">
+      <div class="col-md-8">
+        <div class="card p-3 shadow-sm">
+          <h5>Total Points</h5>
+          <h3><%= users.totalPoints %></h3>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card p-3 shadow-sm">
+          <h5>Status</h5>
+          <%if( users.verified==true ){ %>
+            <h3 >
+                Verified
+            </h3>
+          <%}else{%>
+            <h3 >
+                Not Verified
+            </h3>
+          <%}%>
+        </div>
+      </div>
+    </div>
+
+    <!-- skills -->
+    <h4 class="mb-3">Skills</h4>
+    <div class="row row-cols-lg-4 row-cols-md-3  row-cols-sm-1">
+      <% for (topic of topics){ %>
+
+        <div class="col-md-3 mb-3">
+          <div class="card text-center p-4 shadow-sm">
+            <h5>
+              <%= topic %>
+            </h5>
+            <a href="/tasks/<%= topic  %>" class="btn btn-primary btn-sm mt-2">View Scenarios</a>
+          </div>
+        </div>
+
+        <% } %>
+    </div>
+  </div>
+
+
+
+
+  </div>
+
+  </body>
+
+  </html>

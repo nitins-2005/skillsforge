@@ -1,0 +1,104 @@
+<style>
+  .hero {
+    background: linear-gradient(to right,
+        #020617,
+        #0f172a,
+        #020617);
+    min-height: 70vh;
+    padding-top: 80px;
+  }
+
+  .hero p {
+    color: #cbd5f5;
+  }
+
+
+  .card {
+    transition: transform 0.3s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+  }
+</style>
+<% layout("/layouts/boilerplate") %>
+
+  <!-- hero section -->
+  <section class="hero text-center text-white d-flex align-items-center">
+    <div class="container">
+      <h1 class="fw-bold" style="font-size:3rem;">Prove Your Real-World Skills</h1>
+      <p class="lead mt-3">
+        Solve practical scenarios. Get evaluated. Rank on leaderboards.
+      </p>
+
+      <div class="mt-4">
+        <a href="/signin" class="btn btn-primary btn-lg me-3">Get Started</a>
+        <a href="/login" class="btn btn-outline-light btn-lg">Login</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- working -->
+  <section class="container my-5">
+    <h2 class="text-center mb-4">How SkillsForge Works</h2>
+
+    <div class="row text-center">
+      <div class="col-md-4">
+        <div class="card p-4 shadow-sm">
+          <h5>Choose a Skill</h5>
+          <p>HTML, CSS, JavaScript, Node, Express & more</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card p-4 shadow-sm">
+          <h5>Solve Scenarios</h5>
+          <p>Real-life problems, not MCQs</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card p-4 shadow-sm">
+          <h5>Get Evaluated</h5>
+          <p>Admin-based marking & leaderboard</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="bg-light py-5">
+    <div class="container text-center">
+      <h2>Evaluation Criteria</h2>
+
+      <div class="row justify-content-center mt-4">
+        <div class="col-md-6">
+          <table class="table table-bordered">
+            <tr>
+              <th>Understanding</th>
+              <td>4 Marks</td>
+            </tr>
+            <tr>
+              <th>Implementation</th>
+              <td>4 Marks</td>
+            </tr>
+            <tr>
+              <th>Explanation</th>
+              <td>2 Marks</td>
+            </tr>
+            <tr class="fw-bold">
+              <th>Total</th>
+              <td>10 Marks</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="text-center my-5">
+    <h2>Ready to Test Your Skills?</h2>
+    <p class="mb-4">Start solving real-world problems today.</p>
+    <a href="/signin" class="btn btn-success btn-lg">Create Account</a>
+  </section>

@@ -1,0 +1,127 @@
+<style>
+    body {
+        background-color: #f8fafc;
+    }
+
+    .profile-card {
+        background-color: #1b2743;
+        color: white;
+    }
+
+    .icon {
+        font-size: 3.5rem;
+    }
+
+    .skill-badge {
+        background-color: #0f172a;
+    }
+
+    .section-title {
+        color: #1b2743;
+        font-weight: 600;
+    }
+</style>
+<% layout("/layouts/boilerplate") %>
+    <div class="container my-5">
+
+        <div class="card profile-card p-4 mb-4 ">
+            <div class="d-flex align-items-center display-flex">
+                <div>
+                    <i class="fa-solid fa-user icon"></i>
+                </div>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <div class=" align-items-center">
+                    <h4 class="mb-1">
+                        <%= users.username %>
+                    </h4>
+                    <span class="badge bg-success me-2"><i class="fa-solid fa-certificate"></i> Verified</span>
+                    <span class="badge bg-warning text-dark">
+                        <%= users.totalPoints %>
+                    </span>
+                </div>
+                <!-- leaderbutton -->
+                <a class="btn ms-auto" href="/leaderboard">
+                    <button class="btn  btn-outline-light ms-auto">Leaderboard</button>
+                </a>
+            </div>
+        </div>
+
+
+        <div class="mb-4">
+            <h5 class="section-title mb-2">Skills Earned</h5>
+            <% for (skills of users.skillsEarned) { %>
+                <span class="badge skill-badge me-2">
+                    <%= skills %>
+                </span>
+                <% } %>
+        </div>
+
+
+        <div class="row mb-4">
+
+            <div class="col-md-4">
+                <div class="card text-center">
+                    <div class="card-header fw-bold">Easy Tasks</div>
+                    <div class="card-body">
+                        <h5>12 Completed</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card text-center">
+                    <div class="card-header fw-bold">Medium Tasks</div>
+                    <div class="card-body">
+                        <h5>7 Completed</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card text-center">
+                    <div class="card-header fw-bold">Hard Tasks</div>
+                    <div class="card-body">
+                        <h5>3 Completed</h5>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="mb-4">
+            <h5 class="section-title mb-2">Approved Tasks</h5>
+
+            <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between">
+                    Create Login Page
+                    <span class="badge bg-success">90 Marks</span>
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="mb-5">
+            <h5 class="section-title mb-2">Recent Activity (History)</h5>
+
+            <ul class="list-group">
+                <li class="list-group-item">✔ Completed Bootstrap Task</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- <script>
+        let easy = 0;
+        let medium = 0;
+        let hard = 0;
+        for (sub of submission) {
+            if (sub.task.difficulty === "easy") {
+                easy++;
+            } else if (sub.task.difficulty === "medium") {
+                medium++;
+            } else if (sub.task.difficulty === "hard") {
+                hard++;
+            }
+        }  
+    </script> -->

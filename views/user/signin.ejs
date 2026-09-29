@@ -1,0 +1,32 @@
+<% layout("/layouts/boilerplate") %>
+    <br><br>
+    <div class="row">
+        <h1 class="col-6 offset-3  frm-text">Sign Up on AbodeAway</h1>
+        <div class="col-6 offset-3">
+            <form method="post" action="/signin" novalidate class="forms needs-validation">
+                <div class="mb-0">
+                    <label for="username" class="form-label">Username</label>
+                    <input name="username" type="text" placeholder="Add Username" class="form-control" required>
+                    <div class="valid-feedback">Looks good!</div>
+                    <div class="invalid-feedback">Username should be valid</div><br>
+                    <br>
+                </div>
+                <div class="mb-0">
+                    <label for="email" class="form-label">Email</label>
+                    <input name="email" type="text" placeholder="Add Email" class="form-control" required>
+                    <div class="valid-feedback">Email Looks good!</div>
+                    <div class="invalid-feedback">Email should be valid</div><br>
+                    <br>
+                </div>
+                <div class="mb-0">
+                    <label for="password" class="form-label">Password</label>
+                    <input name="password" type="password" placeholder="Add password" class="form-control" required>
+                    <div class="valid-feedback">Password Looks good!</div>
+                    <div class="invalid-feedback">Password should be valid</div><br>
+                    <br>
+                </div>
+                <button class="btn btn-light add-btn">Sign-in</button>
+            </form>
+        </div>
+    </div>
+    <br><br><br>

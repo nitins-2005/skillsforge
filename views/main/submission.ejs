@@ -1,0 +1,91 @@
+<style>
+    .code-editor {
+        background-color: #0f172a;
+        color: #e5e7eb;
+        border-radius: 8px;
+        padding: 15px;
+    }
+
+    .code-editor::placeholder {
+        color: #9ca3af;
+    }
+</style>
+
+<% layout("/layouts/boilerplate") %>
+    <div class="container mt-5">
+        <div class="row g-4">
+
+
+            <div class="col-md-4">
+                <div class="card shadow-sm ">
+                    <div class="card-header bg-dark text-white text-center">
+                        <strong>DIFFICULTY</strong> : <%= task.difficulty %>
+                    </div>
+
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">
+                            <%= task.title %>
+                        </h5>
+                        <hr>
+                        <p class="card-text">
+                            <strong>AIM:</strong><br>
+                            <%= task.description %>
+                        </p>
+
+                        <p class="card-text">
+                            <strong>SKILLS YOU’LL LEARN:</strong><br>
+                            <%= task.skills %>
+                        </p>
+                    </div>
+
+                    <div class="card-footer text-muted text-center">
+                        Created on: <%= task.createdAt.toDateString() %>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-8">
+                <div class="card shadow-lg">
+                    <div class="card-header bg-primary text-white text-center">
+                        Submit Your Solution
+                    </div>
+
+                    <div class="card-body">
+                        <form action="/tasks/<%= task._id %>/sub" method="POST" novalidate
+                            class="forms needs-validation">
+
+                            <div class="mb-3">
+                                <label for="code" class="form-label">Solution (Write OR paste) / Solution Link (GitHub
+                                    OR Online Link`s) </label>
+                                <textarea name="code" id="code" class="form-control code-editor" rows="10"
+                                    placeholder="// Write or paste your solution here..." required></textarea>
+                                <div class="valid-feedback">Looks good!</div>
+                                <div class="invalid-feedback">Solution should be valid</div><br>
+                                <br>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="explanation" class="form-label">Explanation(what did you do and why)</label>
+                                <textarea name="explanation" id="explanation" class="form-control code-editor" rows="3"
+                                    placeholder="// write your explanation here..." required></textarea>
+                                <div class="valid-feedback">Looks good!</div>
+                                <div class="invalid-feedback">Explanation should be valid</div><br>
+                                <br>
+                            </div>
+
+                            <div class="text-end">
+                                <button type="submit" class="btn btn-success px-4">
+                                    Submit Solution
+                                </button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <br><br><br>

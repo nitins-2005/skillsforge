@@ -1,0 +1,99 @@
+<% layout("/layouts/boilerplate") %>
+    <div class="container py-5">
+
+        <!-- heading -->
+        <div class="text-center mb-5">
+            <h1 class="fw-bold">SkillsForge Leaderboard</h1>
+
+            <p class="text-muted">
+                Compete, improve your skills and climb the leaderboard.
+            </p>
+        </div>
+
+
+        <!-- top 3 users -->
+        <div class="row justify-content-center mb-5">
+            <% users.slice(0, 3).forEach((user, index)=> { %>
+                <div class="col-md-4 mb-3">
+                    <div class="card text-center border-1 shadow-sm ">
+                        <div class="card-body">
+                           <!-- Rank -->
+                            <h2> <% if (index===0) { %>
+                                    🥇
+                                    <% } else if (index===1) { %>
+                                        🥈
+                                        <% } else { %>
+                                            🥉
+                                            <% } %>
+                            </h2>
+                            <!-- username -->
+                            <h4 class="fw-bold"><%= user.username %></h4>
+                            <!-- points -->
+                            <p class="mb-2"><strong><%= user.totalPoints %></strong>&nbsp;points</p>
+                            <!-- verificotioon logic -->
+                            <% if (user.verified) { %>
+                                <span class="badge bg-success">✓ Verified</span>
+                                <% } else { %>
+                                    <span class="badge bg-light text-dark border">Not Verified</span>
+                                <% } %>
+                        </div>
+                    </div>
+                </div>
+                <% }) %>
+        </div>
+        <!-- all users -->
+
+        <div class="card border-1 shadow-sm">
+            <div class="card-body">
+                <h4 class="fw-bold mb-4">All Rankings</h4>
+                <div class="table-responsive">
+                    <table class="table align-middle">
+                        <thead><tr>
+                                <th>Rank</th>
+                                <th>&nbsp;&nbsp;&nbsp;&nbsp;User</th>
+                                <th>Points</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody><% users.forEach((user, index)=> { %>
+                                <tr><!-- Rank -->
+                                    <td>
+                                        <strong>
+                                            #<%= index + 1 %>
+                                            <% if(currentUserId==user._id){%>
+                                                <span><i class="fa-solid fa-star"></i></span>
+                                            <% } %>
+                                        </strong>
+                                    </td>
+                                    <!-- username -->
+                                    <td>
+                                        <div class="d-flex align-items-center gap-2">
+                                            <!-- profile  icon -->
+                                             &nbsp;&nbsp;
+                                            <div class="rounded-circle bg-white text-dark d-flex align-items-center justify-content-center"
+                                                style="width:45px;height:45px;">
+                                                <i class="fa-solid fa-circle-user"></i>
+                                            </div>
+                                            <span>&nbsp;&nbsp;<%= user.username %></span>
+                                        </div>
+                                    </td>
+                                    <!-- points -->
+                                    <td><strong><%= user.totalPoints %></strong>&nbsp;points</td>
+                                    <!-- Status -->
+                                    <td>
+                                        <% if (user.verified) { %>
+                                            <span class="badge bg-success">
+                                                ✓ Verified
+                                            </span>
+                                            <% } else { %>
+                                                <span class="badge bg-light text-dark border">Not Verified  </span>
+                                                <% } %>
+                                    </td>
+                                </tr>
+                                <% }) %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>

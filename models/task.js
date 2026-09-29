@@ -1,0 +1,25 @@
+const mongoose = require('mongoose');
+
+const taskSchema = new mongoose.Schema({
+    title: { 
+        type: String, 
+        required: true 
+    },
+    description: { 
+        type: String, 
+        required: true 
+    },
+    topic:{
+        type:String
+    },
+    difficulty: { 
+        type: String, 
+        enum: ['easy', 'medium', 'hard'], 
+        default: 'easy' 
+    },
+    skills: {
+        type:[String]
+    },
+},{timestamps:true});
+
+module.exports = mongoose.model("Task", taskSchema);

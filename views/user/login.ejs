@@ -1,0 +1,26 @@
+<% layout("/layouts/boilerplate") %>
+    <br><br>
+    <div class="row">
+        <h1 class="col-6 offset-3  frm-text">Log in to SkillsForge</h1>
+        <div class="col-6 offset-3">
+            <form method="POST" action="/login" novalidate class="forms needs-validation">
+                <div class="mb-0">
+                    <label for="email" class="form-label">Email</label>
+                    <input name="email" type="text" placeholder="Add Email" class="form-control" required>
+                    <div class="valid-feedback">Looks good!</div>
+                    <div class="invalid-feedback">Email should be valid</div><br>
+                    <br>
+                </div> 
+                <div class="mb-0">
+                    <label for="password" class="form-label">Password</label>
+                    <input name="password" type="password" placeholder="Add password" class="form-control" required>
+                    <div class="valid-feedback">Password Looks good!</div>
+                    <div class="invalid-feedback">Password should be valid</div><br>
+                    <br>
+                </div>
+                <button type="submit" class="btn btn-light add-btn">Log-in</button>
+            </form>
+        </div>
+    </div>
+    <br><br><br>
+    <br><br><br>
